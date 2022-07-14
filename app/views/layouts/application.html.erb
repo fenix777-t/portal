@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Портал АС ЭТРАН</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta http-equiv="Cache-Control" content="no-store" />
+
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+	<div>
+		<a href="/">Главная</a> |
+		<a href="/list">Список запросов</a> |
+		<a href="/params">Параметры</a> |
+		<a href="/types">Типы данных</a> |
+		<a href="/erase">Очистить</a>
+	</div>
+    <%= yield %>
+  </body>
+</html>

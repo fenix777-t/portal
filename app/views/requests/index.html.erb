@@ -1,0 +1,7 @@
+<h1>Портал документации по запросам АС ЭТРАН</h1>
+
+<%= form_tag({:action => 'upload_xsd'}, :multipart => true) do %>
+	<p><label for="upload_file">Выберите xsd-файл</label>
+	<%= file_field 'upload', 'datafile' %></p>
+	<%= submit_tag "Загрузить" %>
+<% end %>

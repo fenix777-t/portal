@@ -1,0 +1,19 @@
+<h2>Поиск</h2>
+
+<%= form_with(local: true) do |form| %>
+  <div>
+    <%= form.text_field :text, {value: params[:text]} %>
+    <%= form.submit "Искать", {onclick: "document.forms[0].submit();"} %>
+  </div>
+<% end %>
+
+<h1>Запросы</h1>
+
+<ul>
+  <% @requests.each do |request| %>
+    <li>
+      <a href="/list/<%= request.id %>"><%= request.name %></a>: <%= request.documentation %>
+    </li>
+  <% end %>
+</ul>
+

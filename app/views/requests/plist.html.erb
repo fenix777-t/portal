@@ -1,0 +1,19 @@
+<h1>Параметры</h1>
+
+<table>
+  <thead>
+  <tr>
+	<td>Имя</td>
+	<td>Тип</td>
+  </tr>
+  </thead>
+  <tbody>
+  <% @items.each do |i| %>
+    <tr>
+      <td><b><%= i.name %></b></td>
+	  <td><%= i.tname.html_safe %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+

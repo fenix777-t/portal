@@ -1,0 +1,35 @@
+<h1><%= @i.name %></h1>
+
+<p><%= @i.title %></p>
+
+<h2>Параметры</h2>
+
+<ul>
+	<% @items.each do |a| %>
+		<li>
+			<b><%= a[:name] %></b>: <%= a[:text].html_safe %>. <%= ("Тип данных: " + a[:type] + ". ").html_safe if a[:type] != nil %> <%= ("Кол-во от " + a[:minOccurs] + " до " + a[:maxOccurs] + ". ").html_safe if a[:minOccurs] != "..." && a[:maxOccurs] != "..." %>
+			
+			<% if a[:childs].size > 0 then %>
+				<ul>
+					<% a[:childs].each do |a2| %>
+						<li>
+							<b><%= a2[:name] %></b>: <%= a2[:text].html_safe %>. <%= ("Тип данных: " + a2[:type] + ". ").html_safe if a2[:type] != nil %> <%= ("Кол-во от " + a2[:minOccurs] + " до " + a2[:maxOccurs] + ". ").html_safe if a2[:minOccurs] != "..." && a2[:maxOccurs] != "..." %>
+							
+							<% if a2[:childs].size > 0 then %>
+								<ul>
+									<% a2[:childs].each do |a3| %>
+										<li>
+											<b><%= a3[:name] %></b>: <%= a3[:text].html_safe %>. <%= ("Тип данных: " + a3[:type] + ". ").html_safe if a3[:type] != nil %> <%= ("Кол-во от " + a3[:minOccurs] + " до " + a3[:maxOccurs] + ". ").html_safe if a3[:minOccurs] != "..." && a3[:maxOccurs] != "..." %>
+										</li>
+									<% end %>
+								</ul>
+							<% end %>
+							
+						</li>
+					<% end %>
+				</ul>
+			<% end %>
+			
+		</li>
+	<% end %>
+</ul>
